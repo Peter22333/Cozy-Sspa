@@ -409,19 +409,31 @@
             const total = cart.reduce((sum, item) => sum + item.price, 0);
             totalSpan.innerText = "$" + total;
         }
-
-        function bookOnTelegram() {
-            if (cart.length === 0) return;
-
-            let serviceList = cart.map(item => `• ${item.name} ($${item.price})`).join('\n');
-            let total = cart.reduce((sum, item) => sum + item.price, 0);
-
-            let message = `Hello! I would like to request an appointment for the following:\n\n${serviceList}\n\n*Estimated Total: $${total}*\n\nPlease let me know what times are available.`;
-
-            let encodedMessage = encodeURIComponent(message);
-            let tgURL = `https://t.me/${telegramUsername}?text=${encodedMessage}`;
-            window.open(tgURL, '_blank');
+    function bookOnTelegram() {
+    
+        if (selectedServices.length === 0) {
+            alert('Please select at least one service.');
+            return;
         }
+    
+        let serviceList = selectedServices
+            .map(service => service.name)
+            .join(', ');
+    
+        if (typeof Tawk_API !== 'undefined') {
+    
+            // Store selected services
+            Tawk_API.addEvent('Selected Services', {
+                services: serviceList
+            });
+    
+            // Open chat widget
+            Tawk_API.maximize();
+    
+        } else {
+            alert('Chat is loading. Please try again in a moment.');
+        }
+    }
     </script>
 
     <!-- Updated Footer with Telegram -->
