@@ -1,544 +1,578 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Menu | Cozy Cuddles Spa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        spa: {
-                            light: '#FAF9F6',
-                            sage: '#8DA399',
-                            dark: '#2C3E30',
-                            gold: '#C5A059'
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service Menu | Cozy Cuddles Spa</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            spa: {
+                                light: '#FAF9F6',
+                                sage: '#8DA399',
+                                dark: '#2C3E30',
+                                gold: '#C5A059'
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['Lato', 'sans-serif'],
+                            serif: ['Playfair Display', 'serif'],
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Lato', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
                     }
                 }
             }
-        }
-    </script>
-</head>
-
-<body class="bg-spa-light text-spa-dark font-sans antialiased pb-24">
-
-    <!-- Navigation with Active Highlight -->
-    <nav class="w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-20">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="index.html" class="font-serif text-2xl tracking-widest text-spa-dark">Cozy Cuddles</a>
-
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="index.html"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">Home</a>
-                <a href="menu.html"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition font-bold active">Menu</a>
-                <a href="about.html"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">About Us</a>
-                <a href="membership.html"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">Membership</a>
-                <a href="menu.html"
-                    class="px-6 py-2 border border-spa-dark text-spa-dark text-sm uppercase tracking-widest hover:bg-spa-dark hover:text-white transition duration-300">Book
-                    Now</a>
-            </div>
-
-            <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none">
-                <svg class="w-6 h-6 text-spa-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 py-4 absolute w-full shadow-lg">
-            <div class="flex flex-col space-y-3 px-6">
-                <a href="index.html"
-                    class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">Home</a>
-                <a href="menu.html"
-                    class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100 font-bold">Menu</a>
-                <a href="about.html"
-                    class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">About
-                    Us</a>
-                <a href="membership.html"
-                    class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">Membership</a>
-                <a href="menu.html"
-                    class="mt-4 px-4 py-3 bg-spa-gold text-white text-center uppercase tracking-widest text-sm rounded transition duration-300">Book
-                    Now</a>
-            </div>
-        </div>
-    </nav>
-
-    <script>
-        // Hamburger menu
-        document.getElementById('mobile-menu-button').onclick = function () {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        };
-
-        // Highlight active page
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('text-spa-sage', 'font-bold');
-            }
-        });
-    </script>
-
-    <!-- Original Header -->
-    <header class="bg-spa-dark text-white py-12 text-center relative overflow-hidden">
-        <div class="relative z-10">
-            <h1 class="font-serif text-4xl md:text-5xl italic mb-2">Treatment Menu</h1>
-            <p class="text-spa-sage uppercase tracking-widest text-xs">Curated for your wellness</p>
-        </div>
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl">
-        </div>
-    </header>
-
-    <!-- Category Tabs -->
-    <div
-        class="flex justify-center space-x-6 py-8 border-b border-gray-200 sticky top-0 bg-spa-light/95 backdrop-blur z-20 overflow-x-auto">
-        <a href="#massage" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Massage</a>
-        <a href="#facials" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Facials</a>
-        <a href="#packages" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Packages</a>
-    </div>
-
-    <div class="max-w-4xl mx-auto px-6 py-10">
-
-        <div id="massage" class="mb-16">
-            <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-sage pl-4">Body Therapies</h2>
-
-            <!-- Original Services -->
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Deep Tissue Restoration</h3>
-                        <span class="font-bold text-lg block md:hidden">$200</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Targets chronic tension with firm pressure and
-                        therapeutic strokes.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$200</span>
-                    <button onclick="toggleService('Deep Tissue Restoration', 200, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Aromatherapy Flow</h3>
-                        <span class="font-bold text-lg block md:hidden">$150</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Light pressure massage using essential oils to calm
-                        the nervous system.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$150</span>
-                    <button onclick="toggleService('Aromatherapy Flow', 150, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Volcanic Hot Stone</h3>
-                        <span class="font-bold text-lg block md:hidden">$180</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Penetrating heat therapy to melt away muscle
-                        stiffness and tension.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$180</span>
-                    <button onclick="toggleService('Volcanic Hot Stone', 180, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <!-- New Popular USA Services -->
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Swedish Massage</h3>
-                        <span class="font-bold text-lg block md:hidden">$160</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Classic relaxing massage with long gliding strokes
-                        — perfect for stress relief and improved circulation.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$160</span>
-                    <button onclick="toggleService('Swedish Massage', 160, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Sports Massage</h3>
-                        <span class="font-bold text-lg block md:hidden">$210</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Targeted deep work for athletes — improves
-                        recovery, flexibility, and prevents injury.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$210</span>
-                    <button onclick="toggleService('Sports Massage', 210, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Prenatal Massage</h3>
-                        <span class="font-bold text-lg block md:hidden">$180</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Gentle, side-lying massage designed for expectant
-                        mothers to relieve discomfort and reduce stress.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$180</span>
-                    <button onclick="toggleService('Prenatal Massage', 180, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">CBD-Infused Massage</h3>
-                        <span class="font-bold text-lg block md:hidden">$230</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Deep relaxation with CBD oil to reduce inflammation
-                        and muscle tension (highly requested in the USA).</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$230</span>
-                    <button onclick="toggleService('CBD-Infused Massage', 230, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Lymphatic Drainage Massage
-                        </h3>
-                        <span class="font-bold text-lg block md:hidden">$190</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Gentle technique to reduce swelling, detoxify, and
-                        boost immune function.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">75 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$190</span>
-                    <button onclick="toggleService('Lymphatic Drainage Massage', 190, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Original Facials and Packages sections remain unchanged -->
-        <div id="facials" class="mb-16">
-            <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-gold pl-4">Facial Rituals</h2>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-gold transition">The Glow Facial</h3>
-                        <span class="font-bold text-lg block md:hidden">$100</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Vitamin C infusion with lymphatic drainage massage
-                        for radiance.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">75 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$100</span>
-                    <button onclick="toggleService('Glow Facial', 100, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-gold transition">Restorative Retinol
-                            Treatment</h3>
-                        <span class="font-bold text-lg block md:hidden">$175</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Advanced exfoliation and firming mask targeted at
-                        fine lines and elasticity.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$175</span>
-                    <button onclick="toggleService('Restorative Retinol Treatment', 175, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="packages" class="mb-16">
-            <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-sage pl-4">Luxury Packages</h2>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">The Day Retreat</h3>
-                        <span class="font-bold text-lg block md:hidden">$350</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Includes Deep Tissue, Glow Facial, and mineral bath
-                        access. The ultimate reset.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">180 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$350</span>
-                    <button onclick="toggleService('The Day Retreat Package', 350, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-
-            <div
-                class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-                <div class="flex-1 pr-4">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Couple's Private Escape</h3>
-                        <span class="font-bold text-lg block md:hidden">$450</span>
-                    </div>
-                    <p class="text-gray-500 text-sm font-light mb-2">Two Aromatherapy massages in our double suite,
-                        followed by champagne and truffles.</p>
-                    <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
-                </div>
-                <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-                    <span class="font-bold text-lg hidden md:block">$450</span>
-                    <button onclick="toggleService('Couple\'s Private Escape', 450, this)"
-                        class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-                </div>
-            </div>
-        </div>
-        <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-    <div class="flex-1 pr-4">
-        <div class="flex justify-between items-baseline mb-2">
-            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Express Neck & Shoulders Massage</h3>
-            <span class="font-bold text-lg block md:hidden">$45</span>
-        </div>
-        <p class="text-gray-500 text-sm font-light mb-2">Quick tension relief focused on the neck and shoulders.</p>
-        <span class="text-xs uppercase text-gray-400 tracking-wide">30 Mins</span>
-    </div>
-    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-        <span class="font-bold text-lg hidden md:block">$45</span>
-        <button onclick="toggleService('Express Neck & Shoulders Massage', 45, this)"
-            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-    </div>
-</div>
-
-<div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-    <div class="flex-1 pr-4">
-        <div class="flex justify-between items-baseline mb-2">
-            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Scalp & Head Massage</h3>
-            <span class="font-bold text-lg block md:hidden">$55</span>
-        </div>
-        <p class="text-gray-500 text-sm font-light mb-2">Relaxing scalp treatment designed to reduce stress.</p>
-        <span class="text-xs uppercase text-gray-400 tracking-wide">30 Mins</span>
-    </div>
-    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-        <span class="font-bold text-lg hidden md:block">$55</span>
-        <button onclick="toggleService('Scalp & Head Massage', 55, this)"
-            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-    </div>
-</div>
-
-<div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-    <div class="flex-1 pr-4">
-        <div class="flex justify-between items-baseline mb-2">
-            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Foot Reflexology</h3>
-            <span class="font-bold text-lg block md:hidden">$65</span>
-        </div>
-        <p class="text-gray-500 text-sm font-light mb-2">Targeted pressure-point treatment for tired feet.</p>
-        <span class="text-xs uppercase text-gray-400 tracking-wide">45 Mins</span>
-    </div>
-    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-        <span class="font-bold text-lg hidden md:block">$65</span>
-        <button onclick="toggleService('Foot Reflexology', 65, this)"
-            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-    </div>
-</div>
-
-<div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-    <div class="flex-1 pr-4">
-        <div class="flex justify-between items-baseline mb-2">
-            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Hand & Arm Massage</h3>
-            <span class="font-bold text-lg block md:hidden">$40</span>
-        </div>
-        <p class="text-gray-500 text-sm font-light mb-2">Perfect for desk workers and tired hands.</p>
-        <span class="text-xs uppercase text-gray-400 tracking-wide">25 Mins</span>
-    </div>
-    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-        <span class="font-bold text-lg hidden md:block">$40</span>
-        <button onclick="toggleService('Hand & Arm Massage', 40, this)"
-            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-    </div>
-</div>
-
-<div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
-    <div class="flex-1 pr-4">
-        <div class="flex justify-between items-baseline mb-2">
-            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Hot Towel Therapy</h3>
-            <span class="font-bold text-lg block md:hidden">$35</span>
-        </div>
-        <p class="text-gray-500 text-sm font-light mb-2">A warming treatment to soothe muscles and promote relaxation.</p>
-        <span class="text-xs uppercase text-gray-400 tracking-wide">20 Mins</span>
-    </div>
-    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
-        <span class="font-bold text-lg hidden md:block">$35</span>
-        <button onclick="toggleService('Hot Towel Therapy', 35, this)"
-            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Booking Bar with Telegram -->
-    <div id="booking-bar"
-        class="fixed bottom-0 left-0 w-full bg-spa-dark text-white shadow-2xl transform translate-y-full transition-transform duration-300 z-50">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div>
-                <p class="text-xs text-spa-sage uppercase tracking-widest mb-1">Your Selection</p>
-                <div class="flex items-baseline gap-2">
-                    <span id="item-count" class="font-bold text-xl">0</span>
-                    <span class="text-sm font-light">Services</span>
-                    <span class="mx-2 text-gray-500">|</span>
-                    <span class="text-sm font-light">Est. Total:</span>
-                    <span id="total-price" class="font-serif text-xl text-spa-gold">$0</span>
-                </div>
-            </div>
-            <button onclick="bookOnTelegram()"
-                class="bg-[#229ED9] hover:bg-[#1a8ac2] text-white px-6 py-3 rounded-full flex items-center gap-2 shadow-lg transition transform hover:-translate-y-1">
-                <i class="fab fa-telegram text-xl"></i>
-                <span class="font-bold tracking-wide">Book on Telegram</span>
-            </button>
-        </div>
-    </div>
-
-    <script>
-        const telegramUsername = "cozyspa2021";
-        let cart = [];
-
-        function toggleService(name, price, btn) {
-            const index = cart.findIndex(item => item.name === name);
-
-            if (index === -1) {
-                cart.push({ name, price });
-                btn.innerHTML = "Remove";
-                btn.classList.add('bg-spa-dark', 'text-white');
-            } else {
-                cart.splice(index, 1);
-                btn.innerHTML = "Select";
-                btn.classList.remove('bg-spa-dark', 'text-white');
-            }
-            updateBookingBar();
-        }
-
-        function updateBookingBar() {
-            const bar = document.getElementById('booking-bar');
-            const countSpan = document.getElementById('item-count');
-            const totalSpan = document.getElementById('total-price');
-
-            if (cart.length > 0) {
-                bar.classList.remove('translate-y-full');
-            } else {
-                bar.classList.add('translate-y-full');
-            }
-
-            countSpan.innerText = cart.length;
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            totalSpan.innerText = "$" + total;
-        }
-    function bookOnTelegram() {
-    
-        if (selectedServices.length === 0) {
-            alert('Please select at least one service.');
-            return;
-        }
-    
-        let serviceList = selectedServices
-            .map(service => service.name)
-            .join(', ');
-    
-        if (typeof Tawk_API !== 'undefined') {
-    
-            // Store selected services
-            Tawk_API.addEvent('Selected Services', {
-                services: serviceList
-            });
-    
-            // Open chat widget
-            Tawk_API.maximize();
-    
-        } else {
-            alert('Chat is loading. Please try again in a moment.');
-        }
-    }
-    </script>
-
-    <!-- Updated Footer with Telegram -->
-    <footer class="bg-white border-t border-gray-200 py-10 text-center">
-        <p class="text-gray-400 text-xs uppercase tracking-widest">Cozy Cuddles Spa</p>
-        <p class="text-gray-400 text-xs font-light mt-1">Rest. Relax. Rejuvenate.</p>
-        <a href="https://t.me/cozyspa2021" target="_blank"
-            class="inline-flex items-center gap-2 mt-6 text-spa-sage hover:text-spa-dark transition">
-            <i class="fab fa-telegram text-2xl"></i>
-            <span class="text-sm tracking-widest">Message us on Telegram @cozyspa2021</span>
-        </a>
-    </footer>
-            <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/6a26a7385bdfa41c2ccf4597/1jqjfqe8a';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
         </script>
-        <!--End of Tawk.to Script-->
-
-</body>
-
-</html>
+    </head>
+    
+    <body class="bg-spa-light text-spa-dark font-sans antialiased pb-24">
+    
+        <!-- Navigation with Active Highlight -->
+        <nav class="w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-20">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+                <a href="index.html" class="font-serif text-2xl tracking-widest text-spa-dark">Cozy Cuddles</a>
+    
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html"
+                        class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">Home</a>
+                    <a href="menu.html"
+                        class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition font-bold active">Menu</a>
+                    <a href="about.html"
+                        class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">About Us</a>
+                    <a href="membership.html"
+                        class="nav-link text-sm uppercase tracking-widest hover:text-spa-sage transition">Membership</a>
+                    <a href="menu.html"
+                        class="px-6 py-2 border border-spa-dark text-spa-dark text-sm uppercase tracking-widest hover:bg-spa-dark hover:text-white transition duration-300">Book
+                        Now</a>
+                </div>
+    
+                <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none">
+                    <svg class="w-6 h-6 text-spa-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+    
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 py-4 absolute w-full shadow-lg">
+                <div class="flex flex-col space-y-3 px-6">
+                    <a href="index.html"
+                        class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">Home</a>
+                    <a href="menu.html"
+                        class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100 font-bold">Menu</a>
+                    <a href="about.html"
+                        class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">About
+                        Us</a>
+                    <a href="membership.html"
+                        class="nav-link py-2 text-md uppercase tracking-widest text-spa-dark border-b border-gray-100">Membership</a>
+                    <a href="menu.html"
+                        class="mt-4 px-4 py-3 bg-spa-gold text-white text-center uppercase tracking-widest text-sm rounded transition duration-300">Book
+                        Now</a>
+                </div>
+            </div>
+        </nav>
+    
+        <script>
+            // Hamburger menu
+            document.getElementById('mobile-menu-button').onclick = function () {
+                var menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            };
+    
+            // Highlight active page
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('text-spa-sage', 'font-bold');
+                }
+            });
+        </script>
+    
+        <!-- Original Header -->
+        <header class="bg-spa-dark text-white py-12 text-center relative overflow-hidden">
+            <div class="relative z-10">
+                <h1 class="font-serif text-4xl md:text-5xl italic mb-2">Treatment Menu</h1>
+                <p class="text-spa-sage uppercase tracking-widest text-xs">Curated for your wellness</p>
+            </div>
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl">
+            </div>
+        </header>
+    
+        <!-- Category Tabs -->
+        <div
+            class="flex justify-center space-x-6 py-8 border-b border-gray-200 sticky top-0 bg-spa-light/95 backdrop-blur z-20 overflow-x-auto">
+            <a href="#massage" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Massage</a>
+            <a href="#facials" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Facials</a>
+            <a href="#packages" class="uppercase tracking-widest text-xs font-bold hover:text-spa-sage">Packages</a>
+        </div>
+    
+        <div class="max-w-4xl mx-auto px-6 py-10">
+    
+            <div id="massage" class="mb-16">
+                <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-sage pl-4">Body Therapies</h2>
+    
+                <!-- Original Services -->
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Deep Tissue Restoration</h3>
+                            <span class="font-bold text-lg block md:hidden">$200</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Targets chronic tension with firm pressure and
+                            therapeutic strokes.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$200</span>
+                        <button onclick="toggleService('Deep Tissue Restoration', 200, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Aromatherapy Flow</h3>
+                            <span class="font-bold text-lg block md:hidden">$150</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Light pressure massage using essential oils to calm
+                            the nervous system.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$150</span>
+                        <button onclick="toggleService('Aromatherapy Flow', 150, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Volcanic Hot Stone</h3>
+                            <span class="font-bold text-lg block md:hidden">$180</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Penetrating heat therapy to melt away muscle
+                            stiffness and tension.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$180</span>
+                        <button onclick="toggleService('Volcanic Hot Stone', 180, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <!-- New Popular USA Services -->
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Swedish Massage</h3>
+                            <span class="font-bold text-lg block md:hidden">$160</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Classic relaxing massage with long gliding strokes
+                            — perfect for stress relief and improved circulation.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$160</span>
+                        <button onclick="toggleService('Swedish Massage', 160, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Sports Massage</h3>
+                            <span class="font-bold text-lg block md:hidden">$210</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Targeted deep work for athletes — improves
+                            recovery, flexibility, and prevents injury.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$210</span>
+                        <button onclick="toggleService('Sports Massage', 210, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Prenatal Massage</h3>
+                            <span class="font-bold text-lg block md:hidden">$180</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Gentle, side-lying massage designed for expectant
+                            mothers to relieve discomfort and reduce stress.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$180</span>
+                        <button onclick="toggleService('Prenatal Massage', 180, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">CBD-Infused Massage</h3>
+                            <span class="font-bold text-lg block md:hidden">$230</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Deep relaxation with CBD oil to reduce inflammation
+                            and muscle tension (highly requested in the USA).</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$230</span>
+                        <button onclick="toggleService('CBD-Infused Massage', 230, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Lymphatic Drainage Massage
+                            </h3>
+                            <span class="font-bold text-lg block md:hidden">$190</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Gentle technique to reduce swelling, detoxify, and
+                            boost immune function.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">75 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$190</span>
+                        <button onclick="toggleService('Lymphatic Drainage Massage', 190, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Original Facials and Packages sections remain unchanged -->
+            <div id="facials" class="mb-16">
+                <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-gold pl-4">Facial Rituals</h2>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-gold transition">The Glow Facial</h3>
+                            <span class="font-bold text-lg block md:hidden">$100</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Vitamin C infusion with lymphatic drainage massage
+                            for radiance.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">75 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$100</span>
+                        <button onclick="toggleService('Glow Facial', 100, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-gold transition">Restorative Retinol
+                                Treatment</h3>
+                            <span class="font-bold text-lg block md:hidden">$175</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Advanced exfoliation and firming mask targeted at
+                            fine lines and elasticity.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$175</span>
+                        <button onclick="toggleService('Restorative Retinol Treatment', 175, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="packages" class="mb-16">
+                <h2 class="font-serif text-3xl mb-8 border-l-4 border-spa-sage pl-4">Luxury Packages</h2>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">The Day Retreat</h3>
+                            <span class="font-bold text-lg block md:hidden">$350</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Includes Deep Tissue, Glow Facial, and mineral bath
+                            access. The ultimate reset.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">180 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$350</span>
+                        <button onclick="toggleService('The Day Retreat Package', 350, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+    
+                <div
+                    class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+                    <div class="flex-1 pr-4">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Couple's Private Escape</h3>
+                            <span class="font-bold text-lg block md:hidden">$450</span>
+                        </div>
+                        <p class="text-gray-500 text-sm font-light mb-2">Two Aromatherapy massages in our double suite,
+                            followed by champagne and truffles.</p>
+                        <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
+                    </div>
+                    <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+                        <span class="font-bold text-lg hidden md:block">$450</span>
+                        <button onclick="toggleService('Couple\'s Private Escape', 450, this)"
+                            class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Express Neck & Shoulders Massage</h3>
+                <span class="font-bold text-lg block md:hidden">$45</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Quick tension relief focused on the neck and shoulders.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">30 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$45</span>
+            <button onclick="toggleService('Express Neck & Shoulders Massage', 45, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Scalp & Head Massage</h3>
+                <span class="font-bold text-lg block md:hidden">$55</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Relaxing scalp treatment designed to reduce stress.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">30 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$55</span>
+            <button onclick="toggleService('Scalp & Head Massage', 55, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Foot Reflexology</h3>
+                <span class="font-bold text-lg block md:hidden">$65</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Targeted pressure-point treatment for tired feet.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">45 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$65</span>
+            <button onclick="toggleService('Foot Reflexology', 65, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Hand & Arm Massage</h3>
+                <span class="font-bold text-lg block md:hidden">$40</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Perfect for desk workers and tired hands.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">25 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$40</span>
+            <button onclick="toggleService('Hand & Arm Massage', 40, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Hot Towel Therapy</h3>
+                <span class="font-bold text-lg block md:hidden">$35</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">A warming treatment to soothe muscles and promote relaxation.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">20 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$35</span>
+            <button onclick="toggleService('Hot Towel Therapy', 35, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+            <!-- Ultimate Bliss Release - 60 Minutes -->
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Ultimate Bliss Release</h3>
+                <span class="font-bold text-lg block md:hidden">$300</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Full-body sensual oil massage with intimate therapeutic touch, culminating in a complete and deeply satisfying happy ending release.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">60 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$300</span>
+            <button onclick="toggleService('Ultimate Bliss Release (60 Mins)', 300, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+    <!-- Ultimate Bliss Release - 90 Minutes (Recommended) -->
+    <div class="service-card flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 py-6 group">
+        <div class="flex-1 pr-4">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="font-serif text-xl group-hover:text-spa-sage transition">Ultimate Bliss Release</h3>
+                <span class="font-bold text-lg block md:hidden">$450</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light mb-2">Extended full-body sensual experience with more time for deep relaxation and multiple releases. Our most popular and complete indulgence.</p>
+            <span class="text-xs uppercase text-gray-400 tracking-wide">90 Mins</span>
+        </div>
+        <div class="flex items-center mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end gap-6">
+            <span class="font-bold text-lg hidden md:block">$450</span>
+            <button onclick="toggleService('Ultimate Bliss Release (90 Mins)', 450, this)"
+                class="px-6 py-2 border border-spa-dark hover:bg-spa-dark hover:text-white transition uppercase text-xs tracking-widest w-28 text-center select-btn">Select</button>
+        </div>
+    </div>
+    
+        </div>
+    
+        <!-- Booking Bar with Telegram -->
+        <div id="booking-bar"
+            class="fixed bottom-0 left-0 w-full bg-spa-dark text-white shadow-2xl transform translate-y-full transition-transform duration-300 z-50">
+            <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div>
+                    <p class="text-xs text-spa-sage uppercase tracking-widest mb-1">Your Selection</p>
+                    <div class="flex items-baseline gap-2">
+                        <span id="item-count" class="font-bold text-xl">0</span>
+                        <span class="text-sm font-light">Services</span>
+                        <span class="mx-2 text-gray-500">|</span>
+                        <span class="text-sm font-light">Est. Total:</span>
+                        <span id="total-price" class="font-serif text-xl text-spa-gold">$0</span>
+                    </div>
+                </div>
+                <button onclick="bookOnTelegram()"
+                    class="bg-[#229ED9] hover:bg-[#1a8ac2] text-white px-6 py-3 rounded-full flex items-center gap-2 shadow-lg transition transform hover:-translate-y-1">
+                    <i class="fab fa-telegram text-xl"></i>
+                    <span class="font-bold tracking-wide">Book on Telegram</span>
+                </button>
+            </div>
+        </div>
+    
+        <script>
+            const telegramUsername = "cozyspa2021";
+            let cart = [];
+    
+            function toggleService(name, price, btn) {
+                const index = cart.findIndex(item => item.name === name);
+    
+                if (index === -1) {
+                    cart.push({ name, price });
+                    btn.innerHTML = "Remove";
+                    btn.classList.add('bg-spa-dark', 'text-white');
+                } else {
+                    cart.splice(index, 1);
+                    btn.innerHTML = "Select";
+                    btn.classList.remove('bg-spa-dark', 'text-white');
+                }
+                updateBookingBar();
+            }
+    
+            function updateBookingBar() {
+                const bar = document.getElementById('booking-bar');
+                const countSpan = document.getElementById('item-count');
+                const totalSpan = document.getElementById('total-price');
+    
+                if (cart.length > 0) {
+                    bar.classList.remove('translate-y-full');
+                } else {
+                    bar.classList.add('translate-y-full');
+                }
+    
+                countSpan.innerText = cart.length;
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                totalSpan.innerText = "$" + total;
+            }
+        function bookOnTelegram() {
+        
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service.');
+                return;
+            }
+        
+            let serviceList = selectedServices
+                .map(service => service.name)
+                .join(', ');
+        
+            if (typeof Tawk_API !== 'undefined') {
+        
+                // Store selected services
+                Tawk_API.addEvent('Selected Services', {
+                    services: serviceList
+                });
+        
+                // Open chat widget
+                Tawk_API.maximize();
+        
+            } else {
+                alert('Chat is loading. Please try again in a moment.');
+            }
+        }
+        </script>
+    
+        <!-- Updated Footer with Telegram -->
+        <footer class="bg-white border-t border-gray-200 py-10 text-center">
+            <p class="text-gray-400 text-xs uppercase tracking-widest">Cozy Cuddles Spa</p>
+            <p class="text-gray-400 text-xs font-light mt-1">Rest. Relax. Rejuvenate.</p>
+            <a href="https://t.me/cozyspa2021" target="_blank"
+                class="inline-flex items-center gap-2 mt-6 text-spa-sage hover:text-spa-dark transition">
+                <i class="fab fa-telegram text-2xl"></i>
+                <span class="text-sm tracking-widest">Message us on Telegram @cozyspa2021</span>
+            </a>
+        </footer>
+                <!--Start of Tawk.to Script-->
+            <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6a26a7385bdfa41c2ccf4597/1jqjfqe8a';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+            </script>
+            <!--End of Tawk.to Script-->
+    
+    </body>
+    
+    </html>
